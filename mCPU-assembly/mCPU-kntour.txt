@@ -1,0 +1,75 @@
+// knight's tour
+// WARNING~! THIS PROGRAM IS UNDONE AND DEFUNCT
+// MCPU HAS NO STACK AT THIS TIME SO USING SUBROUTINES
+// IN ASSEMBLY CODE IS VVVEEEEEERYYYY TRICKY
+
+DB gX 0
+DB gY 0
+DB cX 0
+DB cY 3
+
+// return to (quasi-pointer)
+DB retp 0
+
+DB i 0
+DB j 0
+DB k 0
+DB t 0
+DB ptr_a 0
+DB cell 0
+
+// ***********************************
+
+:get_cell
+IN aend
+ADD one
+OUT ptr_a
+HALT zero
+IN zero
+:gc_sum1
+OUT t
+SUB cY
+E1 gc_sum1end
+IN ptr_a
+ADD size
+E2 f_error
+OUT ptr_a
+IN t
+ADD one
+E3 gc_sum1
+:gc_sum1end
+IN ptr_a
+ADD cX
+OUT ptr_a
+HALT zero
+//1
+ADD ptr_a
+OUT ptr_a
+ADD ptr_a
+OUT ptr_a
+ADD ptr_a
+//OUT ptr_a
+//-1
+HALT zero
+//combine the command
+ADD in_cmd
+OUT gc_change_cmd
+HALT zero
+:gc_change_cmd
+SUB zero
+HALT zero
+
+:f_error
+IN errorv
+HALT zero
+
+// ***********************************
+// store address of the end of code
+:end
+DB aend ^end
+
+DB size 5
+DB zero 0
+DB one 1
+DB in_cmd 6
+DB errorv -7

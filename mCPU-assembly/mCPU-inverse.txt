@@ -1,0 +1,15 @@
+DB half 1023
+DB zero 0
+DB one 1
+
+:beg
+HALT one
+
+E2 min
+SUB half
+E3 beg
+
+:min
+SUB half
+SUB one
+E3 beg
