@@ -1,0 +1,5 @@
+This directory contains XML 3D model files for libopenmetaverse's 
+import/export modules.
+You can easily import it to SL or OSG using libomv's TestClient or
+wonderful full-featured viewer Radegast.
+
