@@ -1,9 +1,9 @@
 // MyPussy Main Script
 // Compatible with Eliz's GynoidBrain
-// GPL licensed
+//
 // (C) Elizabeth Walpanheim, 2011-2012
 
-string version = "ver 0.4 beta rev. 149";
+string version = "ver 0.4 beta rev. 150";
 
 // ***********************************
 
@@ -20,6 +20,8 @@ integer GynoidIChan = -257776; // GynCPU internal channel
 integer GynoidRChan = -257770; // GynCPU remote control channel
 integer CyberVaginaChannel = -76616769;
 integer VaginaPubChannel = 8;
+integer WomChatChan = -283751;
+string WomSignature = "VGWCHT00021";
 
 integer ticks_max = 1000;
 integer critical_sense = 33;
@@ -249,6 +251,7 @@ orgazzm(integer f)
         set_led_state("powerled",0);
         set_led_state("powerled2",1);
         llWhisper(CyberVaginaChannel,"HUD begin orgazm");
+        llShout(WomChatChan,WomSignature+"|"+llKey2Name(owner)+"| reachs orgasm!");
         llMessageLinked(LINK_ALL_OTHERS,1,"cum",NULL_KEY);
         if (c_last_charge > 0) {
             c_last_charge += 5;
@@ -499,4 +502,3 @@ default
         }
     }
 }
-
